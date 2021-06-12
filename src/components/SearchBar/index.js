@@ -4,10 +4,12 @@ import './style.css';
 
 export default function Searchbar() {
     return (
+        <div>
         <Form>
             <Form.Group>
-            <Form.Control size="lg" type="search" placeholder="Search"></Form.Control>
+            <Form.Control type="search" placeholder="Search"></Form.Control>
             </Form.Group>
         </Form>
+        </div>
     );
 };

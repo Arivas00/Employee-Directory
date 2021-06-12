@@ -1,9 +1,10 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 
+
 export default function Tablebody() {
     return (
-        <Table>
+        <Table striped bordered hover>
             <thead>
                 <tr>
                     <th>Picture</th>
