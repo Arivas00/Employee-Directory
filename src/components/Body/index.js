@@ -10,6 +10,7 @@ export default class Body extends Component {
     state = {
         employees: [],
         filteredEmployees: [],
+        order: "ascending",
         error: ""
     }
 
@@ -28,13 +29,36 @@ export default class Body extends Component {
     searching = (event) => {
         const searchInput = event.target.value;
         const filteredList = this.state.employees.filter((emp) => {
-           let name = (emp.name.first + emp.name.last).toLowerCase();
-           return name.indexOf(searchInput.toLowerCase()) !== -1;
+            let name = (emp.name.first + emp.name.last).toLowerCase();
+            return name.indexOf(searchInput.toLowerCase()) !== -1;
         });
         this.setState({ filteredEmployees: filteredList });
     }
 
     sorting = () => {
+        const { order } = this.state;
+        if (order === "ascending") {
+            this.state.filteredEmployees.sort((a, b) => {
+                if (a.name.first > b.name.first) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            }
+            );
+            this.setState({ order: "descending" });
+        }
+        if (order === "descending") {
+            this.state.filteredEmployees.sort((a, b) => {
+                if (a.name.first < b.name.first) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            }
+            );
+            this.setState({ order: "ascending" });
+        }
     }
 
     render() {

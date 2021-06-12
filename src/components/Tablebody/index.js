@@ -9,7 +9,7 @@ export default function Tablebody(props) {
             <thead>
                 <tr>
                     <th>Picture</th>
-                    <th onClick={()=> props.sorting()}>Name</th>
+                    <th onClick={()=> props.sorting()}><a href="#">Name</a></th>
                     <th>Phone Number</th>
                     <th>Email</th>
                     <th>Birthday</th>
