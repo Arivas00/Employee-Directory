@@ -10,7 +10,6 @@ export default class Body extends Component {
     state = {
         employees: [],
         filteredEmployees: [],
-        results: [],
         error: ""
     }
 
@@ -26,19 +25,33 @@ export default class Body extends Component {
     }
 
 
+    searching = (event) => {
+        const searchInput = event.target.value;
+        const filteredList = this.state.employees.filter((emp) => {
+           let name = (emp.name.first + emp.name.last).toLowerCase();
+           return name.indexOf(searchInput.toLowerCase()) !== -1;
+        });
+        this.setState({ filteredEmployees: filteredList });
+    }
+
+    sorting = () => {
+    }
+
     render() {
         return (
             <Container>
                 <br></br>
                 <Row className="justify-content-center">
                     <Col lg={3}>
-                        <Searchbar />
+                        <Searchbar searching={this.searching} />
                     </Col>
                 </Row>
                 <br></br>
                 <Row>
-                    <Tablebody 
-                    employees={this.state.filteredEmployees}/>
+                    <Tablebody
+                        state={this.state}
+                        FilteredEmployees={this.state.filteredEmployees}
+                        sorting={this.sorting} />
                 </Row>
             </Container>
         )

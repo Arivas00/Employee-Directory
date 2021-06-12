@@ -9,15 +9,15 @@ export default function Tablebody(props) {
             <thead>
                 <tr>
                     <th>Picture</th>
-                    <th>Name</th>
+                    <th onClick={()=> props.sorting()}>Name</th>
                     <th>Phone Number</th>
                     <th>Email</th>
                     <th>Birthday</th>
                 </tr>
             </thead>
             <tbody>
-                {props.employees.map(employee => (
-                    <tr key={employee.id.value}>
+                {props.state.filteredEmployees.map(employee => (
+                    <tr>
                     <td>
                         <img
                             src={employee.picture.thumbnail}

@@ -10,7 +10,10 @@ export default function Header() {
                 <h1 className="title">Employee Directory</h1>
             </Row>
             <Row>
-                <p>Welcome to your employee directory. You can use the search bar to find people or by categories.</p>
+                <p>Welcome to your employee directory.</p>
+            </Row>
+            <Row>
+                <p>You can use the search bar to find people by name or click name category to sort by name.</p>
             </Row>
         </div>
 
